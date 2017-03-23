@@ -1,0 +1,15 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+def printList(L,newL):
+    # se è vuota, non fare niente
+    if not L: return
+    # se è una lista chiama printList sul primo elemento
+    if type(L[0]) == type([]):
+        printList(L[0],newL)
+    else: #non è una lista, quindi visualizzalo 
+        #print L[0]
+	newL.append(L[0]) 
+    # adesso procedi con la parte restante di L 
+    printList(L[1:],newL)
+    return newL
