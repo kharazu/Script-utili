@@ -3,3 +3,11 @@ import csv
 myfile = open(..., 'wb')
 wr = csv.writer(myfile, quoting=csv.QUOTE_ALL)
 wr.writerow(mylist)
+
+#per liste di liste
+
+import csv
+
+with open("output.csv", "wb") as f:
+    writer = csv.writer(f)
+    writer.writerows(a)
