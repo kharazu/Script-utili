@@ -1,0 +1,34 @@
+# quicksort
+import random
+lista = []
+
+for e in range(19):
+	lista.append(random.randint(0,1000))
+
+fin = 0
+
+def quicksort(l,fin):
+	pivot = random.randint(0,len(l)-1)
+	n = l[pivot]
+	un = l[:pivot]
+	du = l[pivot+1:]
+	temp = un + du
+	un = []
+	du = []
+	for e in temp:
+		if e < n:
+			un.append(e)
+		else:
+			du.append(e)
+		
+	
+
+	if not all(un[i] < un[i+1] for i in range(len(un)-1)) and all(i < n for i in un) and len(un) > 0:
+		un = quicksort(un,fin)
+	if not all(du[i] < du[i+1] for i in range(len(du)-1)) and all(i > n for i in du) and len(du) > 0:
+		du = quicksort(du,fin)
+	fin = un + [n] + du
+	
+	return fin
+	
+print quicksort(lista,fin)
